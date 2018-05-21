@@ -1,5 +1,5 @@
 - name: my first play
-  hosts: testserver
+  hosts: all
   tasks:
     - name: ping the server
       ping:
