@@ -1,0 +1,17 @@
+- name: my first play
+  hosts: testserver
+  tasks:
+    - name: ping the server
+      ping:
+      register: ping_out
+      tags:
+        - ping_server
+
+    - debug: msg="Ping's ping key is {{ping_out.ping}}"
+
+    - name: get the uptime
+      command: uptime
+      register: uptime_out
+      tags:
+        - uptime
+    - debug: msg="{{ uptime_out.stdout }}"
